@@ -128,7 +128,11 @@ public:
         }
 
 
-        fiware_connector_ = std::make_unique<NGSIV2Connector>(host, port, subscription_host, subscription_port, fiware_service, fiware_servicePath);
+        fiware_connector_ = std::make_unique<NGSIV2Connector>(host, port,
+                                                              subscription_host,
+                                                              subscription_port,
+                                                              fiware_service,
+                                                              fiware_servicePath);
 
         if (fiware_connector_)
         {

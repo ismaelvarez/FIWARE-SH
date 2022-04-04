@@ -31,7 +31,7 @@ namespace sh {
 namespace fiware {
 
 
-NGSIV2Connector::NGSIV2Connector(
+NGSIV2Connector::    NGSIV2Connector(
         const std::string& remote_host,
         uint16_t remote_port,
         const std::string& listener_host,
@@ -43,10 +43,10 @@ NGSIV2Connector::NGSIV2Connector(
     , port_(remote_port)
     , listener_host_(listener_host)
     , listener_port_(listener_port)
-    , fiware_service_(fiware_service)
-    , fiware_service_path_(fiware_service_path)
     , listener_(listener_port, std::bind(&NGSIV2Connector::receive, this, std::placeholders::_1))
     , subscription_callbacks_()
+    , fiware_service_(fiware_service)
+    , fiware_service_path_(fiware_service_path)
     , logger_("is::sh::FIWARE::NGSIV2Connector")
 {
 }
