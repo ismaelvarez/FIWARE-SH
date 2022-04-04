@@ -100,8 +100,6 @@ private:
 
     std::string host_;
     uint16_t port_;
-    std::string fiware_service_;
-    std::string fiware_service_path_;
 
     std::string listener_host_;
     uint16_t listener_port_;
@@ -109,6 +107,9 @@ private:
 
     std::map<std::string, FiwareSubscriptionCallback> subscription_callbacks_;
     std::mutex subscription_mutex_;
+
+    std::string fiware_service_;
+    std::string fiware_service_path_;
 
     utils::Logger logger_;
 };

@@ -44,9 +44,9 @@ NGSIV2Connector::    NGSIV2Connector(
     , listener_host_(listener_host)
     , listener_port_(listener_port)
     , listener_(listener_port, std::bind(&NGSIV2Connector::receive, this, std::placeholders::_1))
-    , subscription_callbacks_()
     , fiware_service_(fiware_service)
     , fiware_service_path_(fiware_service_path)
+    , subscription_callbacks_()
     , logger_("is::sh::FIWARE::NGSIV2Connector")
 {
 }
