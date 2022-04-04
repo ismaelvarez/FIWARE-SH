@@ -102,7 +102,6 @@ private:
     uint16_t port_;
     std::string fiware_service_;
     std::string fiware_service_path_;
-    std::string host_;
 
     std::string listener_host_;
     uint16_t listener_port_;

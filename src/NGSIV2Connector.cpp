@@ -37,7 +37,7 @@ NGSIV2Connector::NGSIV2Connector(
         const std::string& listener_host,
         uint16_t listener_port,
         const std::string& fiware_service,
-        const std::string& fiware_service_path))
+        const std::string& fiware_service_path)
 
     : host_(remote_host)
     , port_(remote_port)
@@ -201,7 +201,7 @@ std::string NGSIV2Connector::request(
         //Fiware headers
         std::list<std::string> header;
         header.push_back("fiware-service: "+fiware_service_);
-        header.push_back("fiware-servicePath: "+fiware-service_path_);
+        header.push_back("fiware-servicePath: "+fiware_service_path_);
 
         if (method != "DELETE" && method != "GET")
         {

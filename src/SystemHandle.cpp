@@ -76,7 +76,7 @@ public:
             const YAML::Node& configuration,
             TypeRegistry& type_registry) override
     {
-        if (!configuration["host"] || !configuration["port"] || )
+        if (!configuration["host"] || !configuration["port"])
         {
             logger_ << utils::Logger::Level::ERROR
                     << "Configuration must set the FIWARE Context Broker "
@@ -116,7 +116,7 @@ public:
         {
             fiware_service = configuration["fiware_service"].as<std::string>();
         } else {
-            fiware_service = ""
+            fiware_service = "";
         }
 
         std::string fiware_servicePath;
@@ -124,7 +124,7 @@ public:
         {
             fiware_servicePath = configuration["fiware_servicePath"].as<std::string>();
         } else {
-            fiware_servicePath = ""
+            fiware_servicePath = "";
         }
 
 
