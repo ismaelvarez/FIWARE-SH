@@ -1,0 +1,26 @@
+/snap/clion/184/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/184/bin/ninja/linux/ninja -G Ninja /work/is-workspace/src/FIWARE-SH
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:40 (find_package):
+  By not providing "Findxtypes.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "xtypes", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "xtypes" with any
+  of the following names:
+
+    xtypesConfig.cmake
+    xtypes-config.cmake
+
+  Add the installation prefix of "xtypes" to CMAKE_PREFIX_PATH or set
+  "xtypes_DIR" to a directory containing one of the above files.  If "xtypes"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/work/is-workspace/src/FIWARE-SH/cmake-build-debug/CMakeFiles/CMakeOutput.log".

@@ -35,12 +35,16 @@ NGSIV2Connector::NGSIV2Connector(
         const std::string& remote_host,
         uint16_t remote_port,
         const std::string& listener_host,
-        uint16_t listener_port)
+        uint16_t listener_port,
+        const std::string& fiware_service,
+        const std::string& fiware_service_path))
 
     : host_(remote_host)
     , port_(remote_port)
     , listener_host_(listener_host)
     , listener_port_(listener_port)
+    , fiware_service_(fiware_service)
+    , fiware_service_path_(fiware_service_path)
     , listener_(listener_port, std::bind(&NGSIV2Connector::receive, this, std::placeholders::_1))
     , subscription_callbacks_()
     , logger_("is::sh::FIWARE::NGSIV2Connector")
@@ -194,13 +198,17 @@ std::string NGSIV2Connector::request(
         url << host_ << ":" << port_ << "/v2/" << urn;
         request.setOpt(new curlpp::options::Url(url.str()));
         //request.setOpt(new curlpp::options::Verbose(true)); //Enable for debugging purposes
+        //Fiware headers
+        std::list<std::string> header;
+        header.push_back("fiware-service: "+fiware_service_);
+        header.push_back("fiware-servicePath: "+fiware-service_path_);
 
         if (method != "DELETE" && method != "GET")
         {
-            std::list<std::string> header;
             header.push_back("Content-Type: application/json");
-            request.setOpt(new curlpp::options::HttpHeader(header));
         }
+
+        request.setOpt(new curlpp::options::HttpHeader(header));
         request.setOpt(new curlpp::options::Header(response_header));
         request.setOpt(new curlpp::options::CustomRequest(method));
 

@@ -46,7 +46,9 @@ public:
             const std::string& remote_host,
             uint16_t remote_port,
             const std::string& listener_host,
-            uint16_t listener_port);
+            uint16_t listener_port,
+            const std::string& fiware_service,
+            const std::string& fiware_service_path);
 
     virtual ~NGSIV2Connector() = default;
 
@@ -98,6 +100,9 @@ private:
 
     std::string host_;
     uint16_t port_;
+    std::string fiware_service_;
+    std::string fiware_service_path_;
+    std::string host_;
 
     std::string listener_host_;
     uint16_t listener_port_;
