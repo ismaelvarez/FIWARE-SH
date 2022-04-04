@@ -47,7 +47,7 @@ NGSIV2Connector::    NGSIV2Connector(
     , logger_("is::sh::FIWARE::NGSIV2Connector")
 {
     fiware_service_ = fiware_service;
-    fiware_service_path_ = fiware_service_path
+    fiware_service_path_ = fiware_service_path;
 }
 
 std::string NGSIV2Connector::register_subscription(
