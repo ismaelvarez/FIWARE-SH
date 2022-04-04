@@ -38,17 +38,16 @@ NGSIV2Connector::    NGSIV2Connector(
         uint16_t listener_port,
         const std::string& fiware_service,
         const std::string& fiware_service_path)
-
     : host_(remote_host)
     , port_(remote_port)
     , listener_host_(listener_host)
     , listener_port_(listener_port)
-    , fiware_service_(fiware_service)
-    , fiware_service_path_(fiware_service_path)
     , listener_(listener_port, std::bind(&NGSIV2Connector::receive, this, std::placeholders::_1))
     , subscription_callbacks_()
     , logger_("is::sh::FIWARE::NGSIV2Connector")
 {
+    fiware_service_ = fiware_service;
+    fiware_service_path_ = fiware_service_path
 }
 
 std::string NGSIV2Connector::register_subscription(
