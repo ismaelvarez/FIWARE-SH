@@ -60,7 +60,9 @@ public:
             Json fiware_message = json_xtypes::convert(xtypes_message, "value");
 
             for (auto& el : fiware_message.items()) {
-                logger_  << el.key() << " : " << el.value() << "\n";
+                std::string val(el.value()["value"]);
+                if (val.compare("") == 0)
+                    logger_  << el.key() << " : " << el.value()["value"] << "\n";
             }
 
             logger_ << utils::Logger::Level::INFO
