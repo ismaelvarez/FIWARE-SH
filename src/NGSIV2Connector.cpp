@@ -147,7 +147,8 @@ bool NGSIV2Connector::update_entity(
         const Json& json_message)
 {
     std::string urn = "entities/" + entity + "/attrs?type=" + type;
-    std::string response = request("PUT", false, urn, json_message);
+
+    std::string response = request("PATCH", false, urn, json_message);
 
     if (!response.empty())
     {
@@ -227,6 +228,9 @@ std::string NGSIV2Connector::request(
 
         logger_ << utils::Logger::Level::INFO
                 << "Request to FIWARE, url: '" << url.str() << "', method: '" << method << "'";
+
+        logger_ << ", fiware-service: '" << "fiware-service: "+fiware_service_
+        << "', " << ", fiware-servicePath: '" << "fiware-servicePath: "+fiware_service_path_ ;
 
         if ("DELETE" != method && "GET" != method)
         {

@@ -59,6 +59,10 @@ public:
         {
             Json fiware_message = json_xtypes::convert(xtypes_message, "value");
 
+            for (auto& el : fiware_message.items()) {
+                logger_  << el.key() << " : " << el.value() << "\n";
+            }
+
             logger_ << utils::Logger::Level::INFO
                     << "Translate message from Integration Service to FIWARE for topic '"
                     << topic_name_ << "' with type '" << message_type_.name()
