@@ -60,14 +60,11 @@ public:
             Json fiware_message = json_xtypes::convert(xtypes_message, "value");
             std::list<std::string> keys;
             for (auto& el : fiware_message.items()) {
-                std::string val;
-                if (el.value()["value"].is_number()) {
-                    val = std::to_string(el.value()["value"].get<double>());
-                } else
-                    val = el.value()["value"].get<std::string>();
-
-                if (val.compare("") == 0 || val.compare("0.000000") == 0) {
-                    keys.push_back(el.key());
+                if (el.value()["value"].is_string()) {
+                    std::string val = el.value()["value"].get<std::string>();
+                    if (val.compare("") == 0) {
+                        keys.push_back(el.key());
+                    }
                 }
             }
 
