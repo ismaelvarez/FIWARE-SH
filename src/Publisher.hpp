@@ -58,7 +58,7 @@ public:
         try
         {
             Json fiware_message = json_xtypes::convert(xtypes_message, "value");
-
+            std::list<std::string> keys;
             for (auto& el : fiware_message.items()) {
                 std::string val;
                 if (el.value()["value"].is_number()) {
@@ -66,8 +66,13 @@ public:
                 } else
                     val = el.value()["value"].get<std::string>();
 
-                if (val.compare("") == 0)
-                    logger_  << el.key() << " : " << el.value()["value"] << "\n";
+                if (val.compare("") == 0 || val.compare("0.000000") == 0) {
+                    keys.push_back(el.key());
+                }
+            }
+
+            for (auto& key : keys) {
+                fiware_message.erase(key);
             }
 
             logger_ << utils::Logger::Level::INFO
