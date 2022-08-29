@@ -67,11 +67,6 @@ inline bool fiware_type_to_xtypes(
                     { "Long", xtypes::primitive_type<long>() },
                     { "String",  xtypes::StringType() },
                     { "Text",  xtypes::StringType() },
-                    { "FloatArray",  xtypes::ArrayType() },
-                    { "DoubleArray",  xtypes::ArrayType() },
-                    { "ShortArray",  xtypes::ArrayType() },
-                    { "LongArray",  xtypes::ArrayType() },
-                    { "StructuredValue",  xtypes::ArrayType() },
             };
 
     for (const auto& it : fiware_type.items())
