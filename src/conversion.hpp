@@ -37,6 +37,8 @@ namespace conversion {
 
 utils::Logger logger("is::sh::FIWARE::Conversion");
 
+
+
 /**
  * @brief Declare conversion map from FIWARE's primitive built-in types to xTypes.
  *
@@ -50,22 +52,27 @@ inline bool fiware_type_to_xtypes(
         xtypes::StructType& xtype)
 {
     static const std::map<std::string, xtypes::DynamicType::Ptr> types_mapping =
-    {
-        { "Boolean", xtypes::primitive_type<bool>() },
-        { "int8", xtypes::primitive_type<int8_t>() },
-        { "uint8", xtypes::primitive_type<uint8_t>() },
-        { "int16", xtypes::primitive_type<int16_t>() },
-        { "uint16", xtypes::primitive_type<uint16_t>() },
-        { "int32", xtypes::primitive_type<int32_t>() },
-        { "uint32", xtypes::primitive_type<uint32_t>() },
-        { "int64", xtypes::primitive_type<int64_t>() },
-        { "uint64", xtypes::primitive_type<uint64_t>() },
-        { "Float", xtypes::primitive_type<float>() },
-        { "Double", xtypes::primitive_type<double>() },
-        { "Long", xtypes::primitive_type<long>() },
-        { "String",  xtypes::StringType() },
-        { "Text",  xtypes::StringType() },
-    };
+            {
+                    { "Boolean", xtypes::primitive_type<bool>() },
+                    { "int8", xtypes::primitive_type<int8_t>() },
+                    { "uint8", xtypes::primitive_type<uint8_t>() },
+                    { "int16", xtypes::primitive_type<int16_t>() },
+                    { "uint16", xtypes::primitive_type<uint16_t>() },
+                    { "int32", xtypes::primitive_type<int32_t>() },
+                    { "uint32", xtypes::primitive_type<uint32_t>() },
+                    { "int64", xtypes::primitive_type<int64_t>() },
+                    { "uint64", xtypes::primitive_type<uint64_t>() },
+                    { "Float", xtypes::primitive_type<float>() },
+                    { "Double", xtypes::primitive_type<double>() },
+                    { "Long", xtypes::primitive_type<long>() },
+                    { "String",  xtypes::StringType() },
+                    { "Text",  xtypes::StringType() },
+                    { "FloatArray",  xtypes::ArrayType() },
+                    { "DoubleArray",  xtypes::ArrayType() },
+                    { "ShortArray",  xtypes::ArrayType() },
+                    { "LongArray",  xtypes::ArrayType() },
+                    { "StructuredValue",  xtypes::ArrayType() },
+            };
 
     for (const auto& it : fiware_type.items())
     {
