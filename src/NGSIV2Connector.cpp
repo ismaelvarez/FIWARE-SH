@@ -169,7 +169,7 @@ bool NGSIV2Connector::update_entity(
 
 std::map<std::string, Json> NGSIV2Connector::request_types()
 {
-    std::string response = request("GET", true, "types?limit=5000", Json{});
+    std::string response = request("GET", true, "types?limit=1000", Json{});
     Json request = Json::parse(response.c_str() + response.find('[')); //skip HTTP header
 
     std::map<std::string, Json> types;
